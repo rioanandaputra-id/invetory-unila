@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", function () {
     return view("Layouts.Index");
 });
+
+Route::get("assets", function () {
+    return view("Assets.Index");
+});
+
+Route::get("assets/add", function () {
+    return view("Assets.Add");
+});
