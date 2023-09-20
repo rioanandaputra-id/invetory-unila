@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <div class="card card-primary noborder">
+            <div class="card card-info noborder">
 
                 <div class="card-header noborder">
                     <h3 class="card-title">Asset Tetap</h3>
@@ -21,13 +21,14 @@
                     <div class="row mb-2">
                         <div class="col">
                             <div class="float-left">
-                                <a href="" type="button" class="btn btn-sm btn-primary noborder">
+                                <a href="{{ route('monitoring.asset.add') }}" type="button"
+                                    class="btn btn-sm btn-info noborder">
                                     <i class="fas fa-plus-circle"></i> Tambah
                                 </a>
-                                <button id="refresh" type="button" class="btn btn-sm btn-primary noborder">
+                                <button id="refresh" type="button" class="btn btn-sm btn-info noborder">
                                     <i class="fas fa-sync"></i> Refresh
                                 </button>
-                                <button id="delete" type="button" class="btn btn-sm btn-primary noborder">
+                                <button id="delete" type="button" class="btn btn-sm btn-info noborder">
                                     <i class="fas fa-trash"></i> Hapus
                                 </button>
                             </div>
@@ -40,7 +41,7 @@
                     <div class="row">
                         <div class="col">
                             <table class="table table-striped teble-bordered" id="tbAkun" style="width: 100%">
-                                <thead class="bg-primary">
+                                <thead class="bg-info">
                                     <tr>
                                         <th></th>
                                     </tr>

@@ -15,10 +15,22 @@
     </div>
 @endpush
 
+@push('js')
+    <script>
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+    </script>
+@endpush
+
 @section('content')
     <div class="row">
         <div class="col">
-            <div class="card card-primary">
+            <div class="card card-info">
 
                 <div class="card-header">
                     <h3 class="card-title">Form Tambah</h3>
@@ -50,12 +62,12 @@
                                     <input type="text" class="form-control" id="id_smb">
                                 </div>
                             </div>
-                            <div class="mb-3 row">
+                            {{-- <div class="mb-3 row">
                                 <label for="id_pengadaan" class="col-sm-2 col-form-label">Sumber Pengadaan</label>
                                 <div class="col-sm-10">
                                     <div class="input-group">
                                         <input type="text" class="form-control" readonly>
-                                        <button class="btn btn-sm btn-outline-primary noborder" type="button"
+                                        <button class="btn btn-sm btn-outline-info noborder" type="button"
                                             id="button-addon2"><i class="fas fa-link"></i></button>
                                     </div>
                                 </div>
@@ -65,30 +77,37 @@
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="id_smb">
                                 </div>
-                            </div>
+                            </div> --}}
                             <hr>
-
                             <div class="mb-3 row">
                                 <label for="id_kategori" class="col-sm-2 col-form-label">Kategori <i
                                         class="text-red">*</i></label>
                                 <div class="col-sm-10">
                                     <div class="input-group">
-                                        <input type="text" class="form-control">
-                                        <button class="btn btn-sm btn-outline-primary noborder" type="button"
+                                        <select class="form-control select2bs4">
+                                            <option selected="selected">-</option>
+                                            <option>Alaska</option>
+                                            <option>California</option>
+                                            <option>Delaware</option>
+                                            <option>Tennessee</option>
+                                            <option>Texas</option>
+                                            <option>Washington</option>
+                                        </select>
+                                        <button class="btn btn-sm btn-outline-info noborder" type="button"
                                             id="button-addon2"><i class="fas fa-link"></i></button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mb-3 row">
+                            {{-- <div class="mb-3 row">
                                 <label for="id_merk" class="col-sm-2 col-form-label">Merk / Type</label>
                                 <div class="col-sm-10">
                                     <div class="input-group">
                                         <input type="text" class="form-control">
-                                        <button class="btn btn-sm btn-outline-primary noborder" type="button"
+                                        <button class="btn btn-sm btn-outline-info noborder" type="button"
                                             id="button-addon2"><i class="fas fa-link"></i></button>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="mb-3 row">
                                 <label for="nm" class="col-sm-2 col-form-label">Nama Asset <i
                                         class="text-red">*</i></label>
@@ -96,18 +115,18 @@
                                     <input type="text" class="form-control" id="id_smb">
                                 </div>
                             </div>
-                            <div class="mb-3 row">
+                            {{-- <div class="mb-3 row">
                                 <label for="id_smb" class="col-sm-2 col-form-label">Kapasitas</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="id_smb">
                                 </div>
-                            </div>
-                            <div class="mb-3 row">
+                            </div> --}}
+                            {{-- <div class="mb-3 row">
                                 <label for="id_smb" class="col-sm-2 col-form-label">No. pabrik</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="id_smb">
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- <div class="mb-3 row">
                                 <label for="id_smb" class="col-sm-2 col-form-label">No. Rangka</label>
                                 <div class="col-sm-10">
@@ -150,8 +169,16 @@
                                         class="text-red">*</i></label>
                                 <div class="col-sm-10">
                                     <div class="input-group">
-                                        <input type="text" class="form-control">
-                                        <button class="btn btn-sm btn-outline-primary noborder" type="button"
+                                        <select class="form-control select2bs4">
+                                            <option selected="selected">-</option>
+                                            <option>Alaska</option>
+                                            <option>California</option>
+                                            <option>Delaware</option>
+                                            <option>Tennessee</option>
+                                            <option>Texas</option>
+                                            <option>Washington</option>
+                                        </select>
+                                        <button class="btn btn-sm btn-outline-info noborder" type="button"
                                             id="button-addon2"><i class="fas fa-link"></i></button>
                                     </div>
                                 </div>
@@ -169,6 +196,12 @@
                                     <input type="text" class="form-control" id="id_smb">
                                 </div>
                             </div>
+                            <div class="mb-3 row">
+                                <label for="id_smb" class="col-sm-2 col-form-label">Tahun Anggaran</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="id_smb">
+                                </div>
+                            </div>
                             <hr>
 
                             <div class="mb-3 row">
@@ -176,8 +209,16 @@
                                         class="text-red">*</i></label>
                                 <div class="col-sm-10">
                                     <div class="input-group">
-                                        <input type="text" class="form-control">
-                                        <button class="btn btn-sm btn-outline-primary noborder" type="button"
+                                        <select class="form-control select2bs4">
+                                            <option selected="selected">-</option>
+                                            <option>Alaska</option>
+                                            <option>California</option>
+                                            <option>Delaware</option>
+                                            <option>Tennessee</option>
+                                            <option>Texas</option>
+                                            <option>Washington</option>
+                                        </select>
+                                        <button class="btn btn-sm btn-outline-info noborder" type="button"
                                             id="button-addon2"><i class="fas fa-link"></i></button>
                                     </div>
                                 </div>
@@ -187,8 +228,16 @@
                                         class="text-red">*</i></label>
                                 <div class="col-sm-10">
                                     <div class="input-group">
-                                        <input type="text" class="form-control">
-                                        <button class="btn btn-sm btn-outline-primary noborder" type="button"
+                                        <select class="form-control select2bs4">
+                                            <option selected="selected">-</option>
+                                            <option>Alaska</option>
+                                            <option>California</option>
+                                            <option>Delaware</option>
+                                            <option>Tennessee</option>
+                                            <option>Texas</option>
+                                            <option>Washington</option>
+                                        </select>
+                                        <button class="btn btn-sm btn-outline-info noborder" type="button"
                                             id="button-addon2"><i class="fas fa-link"></i></button>
                                     </div>
                                 </div>
@@ -199,8 +248,16 @@
                                         class="text-red">*</i></label>
                                 <div class="col-sm-10">
                                     <div class="input-group">
-                                        <input type="text" class="form-control">
-                                        <button class="btn btn-sm btn-outline-primary noborder" type="button"
+                                        <select class="form-control select2bs4">
+                                            <option selected="selected">-</option>
+                                            <option>Alaska</option>
+                                            <option>California</option>
+                                            <option>Delaware</option>
+                                            <option>Tennessee</option>
+                                            <option>Texas</option>
+                                            <option>Washington</option>
+                                        </select>
+                                        <button class="btn btn-sm btn-outline-info noborder" type="button"
                                             id="button-addon2"><i class="fas fa-link"></i></button>
                                     </div>
                                 </div>
@@ -214,14 +271,15 @@
                             <hr>
 
                             <div class="card-footer mt-4">
-                                <button type="submit" class="btn btn-sm noborder btn-primary mr-2">
+                                <button type="submit" class="btn btn-sm noborder btn-info mr-2">
                                     <i class="fas fa-plus-circle"></i> Tambah Data
                                 </button>
-                                <a href="" type="button" class="btn btn-sm noborder btn-primary">
+                                <a href="{{ route('monitoring.asset.index') }}" type="button"
+                                    class="btn btn-sm noborder btn-info">
                                     <i class="fas fa-chevron-circle-left"></i> Kembali
                                 </a>
                                 <div class="float-right">
-                                    <strong><i class="text-danger">*</i> Bidang harus diisi..</strong>
+                                    <i class="text-danger">*)</i> bidang harus diisi
                                 </div>
                             </div>
 

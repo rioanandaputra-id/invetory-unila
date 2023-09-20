@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class RefCategory extends Model
 {
     protected $table = 'ref.category';
     protected $primaryKey = 'category_id';
@@ -16,7 +16,6 @@ class Category extends Model
 
     protected $fillable = [
         'category_id',
-        'category_parent_id',
         'category_name',
         'created_at',
         'deleted_at',

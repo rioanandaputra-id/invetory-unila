@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Posisition extends Model
+class RefDepartment extends Model
 {
-    protected $table = 'ref.posisition';
-    protected $primaryKey = 'posisition_id';
+    protected $table = 'ref.department';
+    protected $primaryKey = 'department_id';
     public $keyType = 'string';
 
     public $timestamps = true;
@@ -15,9 +15,9 @@ class Posisition extends Model
     const UPDATED_AT = 'updated_at';
 
     protected $fillable = [
-        'posisition_id',
-        'posisition_parent_id',
-        'posisition_name',
+        'department_id',
+        'department_parent_id',
+        'department_name',
         'created_at',
         'deleted_at',
         'updated_at',

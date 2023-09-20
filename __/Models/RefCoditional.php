@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class RefCoditional extends Model
 {
     protected $table = 'ref.conditional';
     protected $primaryKey = 'conditional_id';

@@ -4,19 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $siteInfo['title'] ?? 'Inventory System' }} - UNILA</title>
+    <title>{{ $info['title'][0] ?? ''}} {{ $info['title'][1] ?? ''}} - Inventory Unila</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" href="{{ asset('logo-unila.png') }}">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('adminlte') }}/dist/css/adminlte.min.css">
-    <style>
-        .noborder {
-            border-radius: 0 !important;
-            font-weight: bold;
-        }
-    </style>
+    <style>.noborder {border-radius: 0 !important;font-weight: bold;}</style>
     @stack('css')
 </head>
 
@@ -66,10 +62,10 @@
             </ul>
         </nav>
 
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-light-info elevation-4">
             <a href="index3.html" class="brand-link">
                 <img src="{{ asset('logo-unila.png') }}" alt="UNILA Logo" class="brand-image">
-                <span class="brand-text"><strong>INVENTORY SYSTEM</strong></span>
+                <span class="brand-text"><strong>TIK INVENTORY</strong></span>
             </a>
 
             <div class="sidebar">
@@ -117,14 +113,14 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                {{-- <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Golongan Asset</p>
-                                    </a>
-                                </li> --}}
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('masters.goods.index') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Barang</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('masters.goodsCategories.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Kategori Barang</p>
                                     </a>
@@ -132,108 +128,32 @@
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Satuan Barang</p>
+                                        <p>Departemen</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Merek Barang</p>
+                                        <p>Lokasi Aset</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Sumber Perolehan</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Kondisi Fisik</p>
-                                    </a>
-                                </li>
-                                {{-- <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Status Hak</p>
-                                    </a>
-                                </li> --}}
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Lokasi / Instansi</p>
+                                        <p>User</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-
-
-                        <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
+{{-- nav-item menu-open --}}
+{{-- nav-link active --}}
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-list"></i>
                                 <p>
                                     Monitoring
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>
-                                            Asset Tetap
-                                            {{-- <i class="right fas fa-angle-left"></i> --}}
-                                        </p>
-                                    </a>
-                                    {{-- <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Tanah</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Peralatan & Mesin</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Gedung & Bangunan</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Jalan, Irigasi & Jaringan</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Konstruksi Dlm Pngrjaan</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Aset Tetap Lainnya</p>
-                                            </a>
-                                        </li>
-                                    </ul> --}}
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>
-                                            Asset Berjalan
-                                        </p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
 
                         <li class="nav-item">
@@ -254,25 +174,19 @@
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Perbaikan</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
                                         <p>Peminjaman</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Penghancuran</p>
+                                        <p>Penghapusan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Habis Pakai</p>
+                                        <p>Penyusutan</p>
                                     </a>
                                 </li>
                             </ul>
@@ -310,42 +224,6 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-header text-bold">Lainnya</li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-list"></i>
-                                <p>
-                                    Pegawai
-                                </p>
-                            </a>
-                        </li>
-
-
-                        {{-- <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-list"></i>
-                                <p>
-                                    Data Master
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Golongan Aset</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Kategori Aset</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li> --}}
-
-
 
                     </ul>
                 </nav>
@@ -382,6 +260,7 @@
 
     <script src="{{ asset('adminlte') }}/plugins/jquery/jquery.min.js"></script>
     <script src="{{ asset('adminlte') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('adminlte') }}/plugins/select2/js/select2.full.min.js"></script>
     <script src="{{ asset('adminlte') }}/dist/js/adminlte.min.js"></script>
 
     @stack('js')
